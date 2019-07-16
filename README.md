@@ -15,6 +15,17 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials, 
 samples, guidance on mobile development, and a full API reference.
 
+## なんのアプリか
+SSDなどの物体検出アルゴリズムの教師データ集めのためのアノテーション作業が面倒くさいので、
+写真を撮ると同時にjpgファイルとバウンディングボックスのjsonファイルが生成されるようなアプリを作った。
+
+## 使い方
+- アプリ起動する
+- 横向きにする（ボタンが右側）
+- 四角のボタンを押す。
+- バウンディングボックスを描画するためにカメラプレビュー上で任意の２点をタップするとその２点を対角線とするボックスが出現
+- この状態でカメラマークを押すと、写真とバウンディングボックスのjsonファイルが保存される
+
 # 諸々の注意点
 使用上の注意は３つ！すべて僕のコーディング力不足に由来するものです！（土下座）
 

@@ -24,6 +24,7 @@ class _CameraScreenState extends State<CameraScreen> {
   double x1, y1, x2, y2;
   double left, right, top, bottom;
   Widget boundingbox;
+  bool initialized = false;
 
   void tapped(BuildContext context, TapDownDetails details) {
     if (this.count == 1) {
@@ -94,9 +95,16 @@ class _CameraScreenState extends State<CameraScreen> {
     controller =
         new CameraController(widget.cameras[0], ResolutionPreset.medium);
 
-    initializeControllerFuture = controller.initialize();
+    // initializeControllerFuture =
+    // controller.initialize().then(()=>setState(() => {this.initialized = true}));
+    _initController();
 
     print(controller.value.isInitialized);
+  }
+
+  void _initController() async {
+    await controller.initialize();
+    setState(() => {this.initialized = true});
   }
 
   @override
@@ -108,12 +116,12 @@ class _CameraScreenState extends State<CameraScreen> {
   @override
   Widget build(BuildContext context) {
     print(MediaQuery.of(context).size.width);
-    print(controller.value.aspectRatio);
+    // print(controller.value.aspectRatio);
 
-    if (!controller.value.isInitialized) {
+    if (!initialized) {
       print("not initialized");
       return new Container(
-        child: new Text("failed"),
+        child: new Text("now loading....."),
       );
     }
 
