@@ -70,9 +70,9 @@ class _CameraScreenState extends State<CameraScreen> {
     //横向きで使う想定なので、以下でx軸とy軸が入れ替わる。(widthとheightが反対に)
     final topIntResize = (((MediaQuery.of(context).size.width)) - this.right) *
         640 /
-        (MediaQuery.of(context).size.width);
+        (MediaQuery.of(context).size.width).toInt();
     final leftIntResize =
-        (topInt - 65) * 640 / (MediaQuery.of(context).size.width);
+        (topInt - 65) * 640 / (MediaQuery.of(context).size.width).toInt();
 
     final widthResize =
         (height * 640 / (MediaQuery.of(context).size.width)).toInt();
